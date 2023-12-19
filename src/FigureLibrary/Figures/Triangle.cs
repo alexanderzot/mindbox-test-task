@@ -8,7 +8,7 @@ public class Triangle: IArea
     private readonly double _mediumSide;
     private readonly double _bigSide;
 
-    public Triangle(double a, double b, double c)
+    public Triangle(double a, double b, double c, double eps = 1e-5)
     {
         if (a <= 0)
             throw new ArgumentOutOfRangeException(nameof(a), "Side of triangle must be greater than zero");
@@ -19,7 +19,8 @@ public class Triangle: IArea
         
         double[] sides = {a, b, c};
         Array.Sort(sides);
-        if (sides[0] + sides[1] <= sides[2])
+        // a + b <= c
+        if (sides[0] + sides[1] <= sides[2] + eps)
             throw new ArgumentException("Triangle with current sides does not exist");
         
         _smallSide = sides[0];
