@@ -23,6 +23,13 @@ public class TriangleTests
     }
     
     [Test]
+    public void Constructor_BadEps_ThrowsException()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Triangle(1, 1, 1, 0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Triangle(1, 1, 1, -1));
+    }
+    
+    [Test]
     public void Constructor_NotTriangleSides_ThrowsException()
     {
         Assert.Throws<ArgumentException>(() => new Triangle(1, 1, 2));
@@ -84,5 +91,14 @@ public class TriangleTests
         
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
+    }
+    
+    [Test]
+    public void IsRight_BadEps_ThrowsException()
+    {
+        var triangle = new Triangle(5, 4, 3);
+        
+        Assert.Throws<ArgumentOutOfRangeException>(() => triangle.IsRight(0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => triangle.IsRight(-1));
     }
 }
