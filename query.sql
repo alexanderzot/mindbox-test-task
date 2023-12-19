@@ -53,7 +53,7 @@ VALUES
 
 SELECT p.name as product_name, c.name as category_name
 FROM products as p
-	LEFT JOIN link_categories_products as l
+    LEFT JOIN link_categories_products as l
     ON p.product_id = l.product_id
 
     LEFT JOIN categories as c
