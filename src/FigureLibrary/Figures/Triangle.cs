@@ -16,10 +16,11 @@ public class Triangle: IArea
             throw new ArgumentOutOfRangeException(nameof(b), "Side of triangle must be greater than zero");
         if (c <= 0)
             throw new ArgumentOutOfRangeException(nameof(c), "Side of triangle must be greater than zero");
+        if (eps <= 0)
+            throw new ArgumentOutOfRangeException(nameof(eps), "eps must be greater than zero");
         
         double[] sides = {a, b, c};
         Array.Sort(sides);
-        // a + b <= c
         if (sides[0] + sides[1] <= sides[2] + eps)
             throw new ArgumentException("Triangle with current sides does not exist");
         
@@ -37,6 +38,9 @@ public class Triangle: IArea
 
     public bool IsRight(double eps = 1e-5)
     {
+        if (eps <= 0)
+            throw new ArgumentOutOfRangeException(nameof(eps), "eps must be greater than zero");
+        
         var delta = _smallSide * _smallSide + _mediumSide * _mediumSide - _bigSide * _bigSide;
         return Math.Abs(delta) <= eps;
     }
