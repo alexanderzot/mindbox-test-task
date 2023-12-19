@@ -28,14 +28,14 @@ CREATE TABLE link_categories_products
 
 INSERT INTO categories(category_id, name)
 VALUES
-	(1, N'Фрукты'),
+    (1, N'Фрукты'),
     (2, N'Овощи'),
     (3, N'Напитки'),
     (4, N'Акция');
 
 INSERT INTO products(product_id, name)
 VALUES
-	(1, N'Яблоки'),
+    (1, N'Яблоки'),
     (2, N'Мандарины'),
     (3, N'Бананы'),
     (4, N'Капуста'),
@@ -43,7 +43,7 @@ VALUES
 
 INSERT INTO link_categories_products
 VALUES
-	(1, 1), -- Фрукты Яблоки
+    (1, 1), -- Фрукты Яблоки
     (1, 2), -- Фрукты Мандарины
     (1, 3), -- Фрукты Бананы
     (2, 4); -- Овощи Капуста
